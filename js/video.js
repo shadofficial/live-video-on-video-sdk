@@ -1,24 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Videosdk.live RTC</title>
-  </head>
-  <body>
-    <script>
+function makeid(length) {
+    var result           = '';
+    var characters       = 'bcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+console.log(makeid(5));
+ function yahoo(){
       var script = document.createElement("script");
       script.type = "text/javascript";
       //
       script.addEventListener("load", function (event) {
         // Initialize the factory function
         const meeting = new VideoSDKMeeting();
-
+  
         // Set apikey, meetingId and participant name
-        const apiKey = "<API KEY>"; // generated from app.videosdk.live
-        const meetingId = "milkyway";
-        const name = "John Doe";
+        const apiKey = "57cc493f-abce-4089-a8a3-d980cd04e294"; // generated from app.videosdk.live
+        const meetingId = document.getElementById("meetid").value;
+        const name = document.getElementById("meetn").value;
 
         const config = {
           name: name,
@@ -26,7 +28,7 @@
           meetingId: meetingId,
 
           containerId: null,
-          redirectOnLeave: "https://www.videosdk.live/",
+          redirectOnLeave: "https://googlemeetclone.herokuapp.com/",
 
           micEnabled: true,
           webcamEnabled: true,
@@ -45,8 +47,8 @@
 
           brandingEnabled: true,
           brandLogoURL: "https://picsum.photos/200",
-          brandName: "Awesome startup",
-          poweredBy: true,
+          brandName: "Awesome startup by Shad",
+          poweredBy: false,
 
           participantCanLeave: true, // if false, leave button won't be visible
 
@@ -68,17 +70,13 @@
 
         joinScreen: {
           visible: true, // Show the join screen ?
-          title: "Daily scrum", // Meeting title
-          meetingUrl: window.location.href, // Meeting joining url
+          title: "Daily Meeting", // Meeting title
+          meetingUrl: window.location.href+"meetingjoin.php", // Meeting joining url
         },
       };
 
         meeting.init(config);
       });
 
-      script.src =
-        "https://sdk.videosdk.live/rtc-js-prebuilt/0.1.5/rtc-js-prebuilt.js";
-      document.getElementsByTagName("head")[0].appendChild(script);
-    </script>
-  </body>
-</html>
+      script.src ="https://sdk.videosdk.live/rtc-js-prebuilt/0.1.5/rtc-js-prebuilt.js";
+      document.getElementsByTagName("head")[0].appendChild(script);}
