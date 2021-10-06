@@ -12,7 +12,22 @@
   <input type="text" id="meetn" placeholder="Your Name">
   <button onclick="yahoo();">Add meeting</button>
 
+  <script>
+    function makeid(length) {
+    var result           = '';
+    var characters       = 'bcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+console.log(makeid(5));
+
+    </script>
     <script>
+      
       function yahoo(){
       var script = document.createElement("script");
       script.type = "text/javascript";
@@ -20,7 +35,7 @@
       script.addEventListener("load", function (event) {
         // Initialize the factory function
         const meeting = new VideoSDKMeeting();
-
+  
         // Set apikey, meetingId and participant name
         const apiKey = "57cc493f-abce-4089-a8a3-d980cd04e294"; // generated from app.videosdk.live
         const meetingId = document.getElementById("meetid").value;
@@ -75,7 +90,7 @@
         joinScreen: {
           visible: true, // Show the join screen ?
           title: "Daily scrum", // Meeting title
-          meetingUrl: window.location.href, // Meeting joining url
+          meetingUrl: window.location.href+makeid(5), // Meeting joining url
         },
       };
 
