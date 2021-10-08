@@ -47,7 +47,7 @@ console.log(makeid(5));
 
           brandingEnabled: true,
           brandLogoURL: "https://picsum.photos/200",
-          brandName: "Awesome startup by Shad",
+          brandName: "Techburner",
           poweredBy: false,
 
           participantCanLeave: true, // if false, leave button won't be visible
